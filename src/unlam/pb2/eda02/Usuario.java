@@ -13,6 +13,8 @@ public class Usuario {
 	private Boolean estaLogueado;
 	private Boolean estaBloqueado;
 	private ArrayList<String> listadoContrasenas;
+	
+	private Integer prueba = 1;
 
 	public Usuario(String nombre, String apellido, String dni) {
 		this.nombre = nombre;
