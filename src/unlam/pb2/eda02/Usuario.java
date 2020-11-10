@@ -2,7 +2,7 @@ package unlam.pb2.eda02;
 
 import java.util.ArrayList;
 
-public class Usuario {
+public abstract class Usuario {
 
 	private String nombre;
 	private String apellido;
@@ -47,9 +47,6 @@ public class Usuario {
 		return this.dni;
 	}
 
-	public void setDNI(String DNI) {
-		this.dni = DNI;
-	}
 
 	public ArrayList<String> getListadoContrasenas() {
 		return this.listadoContrasenas;
