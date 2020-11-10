@@ -47,7 +47,7 @@ public class TestSistema {
 		pb1.anotarAlumno(pedro);
 		pb1.anotarAlumno(jorge);
 
-		alejandro.subirEvaluacion("Examen 1 de herencia", pb1);
+		alejandro.subirEvaluacion("Examen 1 de herencia", pb1, false);
 
 		assertNotNull(jorge.obtenerEvaluacionPorTitulo("Examen 1 de herencia", jorge.getCurso(pb1)));
 		assertNotNull(pedro.obtenerEvaluacionPorTitulo("Examen 1 de herencia", pedro.getCurso(pb1)));
@@ -68,7 +68,7 @@ public class TestSistema {
 		pb1.anotarAlumno(pedro);
 		pb1.anotarAlumno(jorge);
 
-		alejandro.subirEvaluacion("Examen 1 de herencia", pb1);
+		alejandro.subirEvaluacion("Examen 1 de herencia", pb1, false);
 
 		assertTrue(jorge.realizarEvaluación("Examen 1 de herencia", pb1));
 		assertFalse(jorge.obtenerEvaluacionPorTitulo("Examen 1 de herencia", jorge.getCurso(pb1)).isPendiente());
@@ -89,7 +89,7 @@ public class TestSistema {
 		pb1.anotarAlumno(pedro);
 		pb1.anotarAlumno(jorge);
 
-		alejandro.subirEvaluacion("Examen 1 de herencia", pb1);
+		alejandro.subirEvaluacion("Examen 1 de herencia", pb1, false);
 		jorge.realizarEvaluación("Examen 1 de herencia", pb1);
 		
 		assertTrue(alejandro.corregirEvaluacion(pb1, jorge, "Examen 1 de herencia", 7));

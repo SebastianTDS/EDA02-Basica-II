@@ -31,12 +31,12 @@ public class Docente extends Usuario {
 		return null;
 	}
 
-	public Boolean subirEvaluacion(String tituloEvaluacion, Materia materiaAEvaluar) {
+	public Boolean subirEvaluacion(String tituloEvaluacion, Materia materiaAEvaluar, Boolean esRecuperatorio) {
 		for (Materia buscada : materiasACargo) {
 			if (buscada.equals(materiaAEvaluar)) {
 				for (Alumno alumno : buscada.getListadoAlumnos()) {
 					if(alumno.getCurso(buscada) != null)
-						alumno.getCurso(buscada).anadirEvaluacion(new Evaluacion(tituloEvaluacion));
+						alumno.getCurso(buscada).anadirEvaluacion(new Evaluacion(tituloEvaluacion, esRecuperatorio));
 				}
 				return true;
 			}

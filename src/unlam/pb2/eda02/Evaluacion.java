@@ -5,11 +5,13 @@ public class Evaluacion {
 	private Integer nota;
 
 	private Boolean pendiente;
+	private Boolean recuperatorio;
 
-	public Evaluacion(String titulo) {
+	public Evaluacion(String titulo, Boolean recuperatorio) {
 		this.pendiente = true;
 		this.titulo = titulo;
 		this.nota = null;
+		this.recuperatorio = recuperatorio;
 	}
 	
 	@Override
@@ -51,7 +53,7 @@ public class Evaluacion {
 	
 	public Boolean colocarNota(Integer nota) {
 		if(nota > 10 || nota < 0 || nota == null || this.nota != null) return false;
-		if(pendiente) {
+		if(pendiente && !recuperatorio) {
 			this.nota = 0;
 			return false;
 		}else {

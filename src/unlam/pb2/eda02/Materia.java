@@ -5,13 +5,11 @@ import java.util.HashSet;
 public class Materia {
 	
 	private HashSet<Alumno> listadoAlumnos;
-	private String nombreMateria;
 	private Docente docenteDeCatedra;
 	
 	public Materia(String nombreMateria, Docente docenteDeCatedra) {
 		this.listadoAlumnos = new HashSet<Alumno>();
 		this.docenteDeCatedra = docenteDeCatedra;
-		this.nombreMateria = nombreMateria;
 	}
 	
 	public Docente getDocente() {
