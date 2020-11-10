@@ -97,7 +97,7 @@ public abstract class Usuario {
 
 				if (!(this.listadoContrasenas.contains(contra))) {
 					if (this.listadoContrasenas.size() == 5) {
-						this.listadoContrasenas.remove(this.listadoContrasenas.get(4));
+						this.listadoContrasenas.remove(this.listadoContrasenas.get(0));
 						this.contrasena = contra;
 						this.listadoContrasenas.add(contra);
 						return true;
@@ -117,22 +117,22 @@ public abstract class Usuario {
 	
 
 	public Boolean ingresarACuenta(String dni, String contrasena) {
-			
+		if(estaBloqueado) return this.estaLogueado;	
+		
 		if((this.dni.equals(dni)) && (this.contrasena.equals(contrasena)) && (this.isBloqueado().equals(false))){
 			this.estaLogueado = true;
 		}else {
 			this.estaLogueado = false;
 			this.contadorIntentos++;
+			if(contadorIntentos >= CANT_MAX_INTENTOS)
+				this.estaBloqueado = true;
 		}
 		return this.estaLogueado;
 	}
-
-	
 	
 	public void desbloquear() {
 		this.estaBloqueado = false;
-		
-
+		this.contadorIntentos = 0;
 	}
 
 	@Override
