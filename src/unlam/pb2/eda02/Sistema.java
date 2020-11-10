@@ -39,7 +39,7 @@ public class Sistema {
 		
 		for(Usuario i : this.listaDeUsuarios) {
 			if(i instanceof Tecnico) {
-				listaTecnicos.add(i);
+				listaTecnicos.add((Tecnico)i);
 			}
 		}
 		return listaTecnicos;
@@ -50,7 +50,7 @@ public class Sistema {
 		
 		for(Usuario i : this.listaDeUsuarios) {
 			if(i instanceof Alumno) {
-				listaAlumnos.add(i);
+				listaAlumnos.add((Alumno)i);
 			}
 		}
 		return listaAlumnos;
@@ -61,7 +61,7 @@ public class Sistema {
 		
 		for(Usuario i : this.listaDeUsuarios) {
 			if(i instanceof Docente) {
-				listaDocentes.add(i);
+				listaDocentes.add((Docente)i);
 			}
 		}
 		return listaDocentes;
@@ -72,37 +72,15 @@ public class Sistema {
 	}
 	
 	public Integer obtenerNumeroTecnicos() {
-		HashSet<Tecnico>listaTecnicos = new HashSet <Tecnico>();
-		
-		for(Usuario i : this.listaDeUsuarios) {
-			if(i instanceof Tecnico) {
-				listaTecnicos.add(i);
-			}
-		}
-		return listaTecnicos.size();
+		return obtenerTecnicos().size();
 	}
 	
 	public Integer obtenerNumeroAlumnos() {
-		HashSet<Alumno>listaAlumnos = new HashSet <Alumno>();
-		
-		for(Usuario i : this.listaDeUsuarios) {
-			if(i instanceof Alumno) {
-				listaAlumnos.add(i);
-			}
-		}
-		return listaAlumnos.size();
+		return obtenerAlumnos().size();
 	}
 	
 	public Integer obtenerNumeroDocentes() {
-		HashSet<Docente>listaDocentes = new HashSet <Docente>();
-		
-		for(Usuario i : this.listaDeUsuarios) {
-			if(i instanceof Docente) {
-				listaDocentes.add(i);
-			}
-		}
-		return listaDocentes.size();
-		
+		return obtenerDocentes().size();
 	}
 	
 	public Materia obtenerMateria(Materia materiaSolicitada) {
