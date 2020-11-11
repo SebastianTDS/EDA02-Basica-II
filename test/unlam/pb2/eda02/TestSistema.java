@@ -98,4 +98,110 @@ public class TestSistema {
 		assertEquals(jorge.obtenerEvaluacionPorTitulo("Examen 1 de herencia", jorge.getCurso(pb1)).getNota(), (Integer)7);
 		assertEquals(pedro.obtenerEvaluacionPorTitulo("Examen 1 de herencia", pedro.getCurso(pb1)).getNota(), (Integer)0);
 	}
+	
+	@Test
+	public void testQueValideQueUnTecnicoRegistradoPuedaLoguearse() {
+		
+		Tecnico pablo = new Tecnico("Juan", "González", 96015712);
+		Tecnico ana = new Tecnico("Ana", "Gomez", 26272364);
+		Tecnico camila = new Tecnico("Camila", "Gomez", 60810540);
+		
+		pablo.ingresarACuenta(96015712, "96015712");
+		ana.ingresarACuenta(26272364, "26272364");
+		camila.ingresarACuenta(60810540, "60810540");
+		
+		assertTrue(pablo.isLogueado());
+		assertTrue(ana.isLogueado());
+		assertTrue(camila.isLogueado());
+			
+		
+	}
+	
+	@Test
+		public void testQueValideNoPermitirLoguearAlUsuarioSiIngresaUnaContrasenaErronea() {
+		
+		Tecnico pablo = new Tecnico("Juan", "González", 96015712);
+		Tecnico ana = new Tecnico("Ana", "Gomez", 26272364);
+		Tecnico camila = new Tecnico("Camila", "Gomez", 60810540);
+		
+		pablo.ingresarACuenta(96015712, "21456789");
+		ana.ingresarACuenta(26272364, "45789523");
+		camila.ingresarACuenta(60810540, "32547895");
+		
+		assertFalse(pablo.isLogueado());
+		assertFalse(ana.isLogueado());
+		assertFalse(camila.isLogueado());
+			
+		
+	}
+	
+	@Test
+	public void testQuePermitaCambiarLaContrasenaAlUsuario() {
+	
+		Tecnico pablo = new Tecnico("Juan", "González", 96015712);
+		Tecnico ana = new Tecnico("Ana", "Gomez", 26272364);
+	
+		
+		pablo.ingresarACuenta(96015712, "96015712");
+		ana.ingresarACuenta(26272364, "26272364");
+	
+		
+		assertTrue(pablo.cambiarContrasena("11BBBaaa///"));
+		assertTrue(pablo.cambiarContrasena("22ccAAA2..."));
+		
+	}
+
+	@Test
+	public void testQueNoPermitaCambiarLaContrasenaAlUsuarioSiNoCumpleConLosCaractereObligatoriosATener() {
+	
+		Tecnico pablo = new Tecnico("Juan", "González", 96015712);
+		Tecnico ana = new Tecnico("Ana", "Gomez", 26272364);
+	
+		
+		pablo.ingresarACuenta(96015712, "96015712");
+		ana.ingresarACuenta(26272364, "26272364");
+	
+		
+		assertFalse(pablo.cambiarContrasena("123"));
+		assertFalse(pablo.cambiarContrasena("AAA"));
+		
+	}
+	
+	@Test
+	public void testQueBloqueeAlUsuarioAlSuperarLaCantidadMaximaDeIntentos() {
+	
+		Tecnico pablo = new Tecnico("Juan", "González", 96015712);
+	
+		
+		pablo.ingresarACuenta(96015712, "12345678");
+		pablo.ingresarACuenta(96015712, "78945612");
+		pablo.ingresarACuenta(96015712, "45678932");
+		
+	
+		assertTrue(pablo.isBloqueado());
+		
+	}
+	
+	@Test
+	public void testQuePermitaAlTecnicoDesbloquearAlUsuario() {
+	
+		Tecnico pablo = new Tecnico("Juan", "González", 96015712);
+		Tecnico ana = new Tecnico("Ana", "Gomez", 26272364);
+		
+		pablo.ingresarACuenta(96015712, "12345678");
+		pablo.ingresarACuenta(96015712, "78945612");
+		pablo.ingresarACuenta(96015712, "45678932");
+		
+		ana.ingresarACuenta(26272364, "26272364");
+	
+		ana.desbloquearUsuario(pablo);
+		
+		
+		assertFalse(pablo.isBloqueado());
+		
+	}
+	
+	
+
+	
 }
