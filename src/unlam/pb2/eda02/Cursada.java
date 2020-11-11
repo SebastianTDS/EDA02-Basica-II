@@ -1,32 +1,48 @@
 package unlam.pb2.eda02;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 
-public class Cursada {
-	
-	private Materia materiaEnCurso;
-	private HashSet<Evaluacion> evaluacionesCursada;
+public class Cursada{
+
+	public ArrayList<Evaluacion> listadoEvaluaciones;
+	public Alumno alumnoCursando;
+	public Materia materia;
+	public enum estadoCursada{APROBADA, DESAPROBADA};
 	private Alumno alumnoEnCursada;
 	
-	public Cursada(Materia materiaEnCurso, Alumno alumnoEnCursada) {
-		this.materiaEnCurso = materiaEnCurso;
-		this.evaluacionesCursada = new HashSet<Evaluacion>();
-		this.alumnoEnCursada = alumnoEnCursada;
+	
+	public Cursada(Materia materia, Alumno alumnoCursando) {
+		this.materia = materia;
+		this.alumnoCursando = alumnoCursando;
 	}
-
+	
+	public ArrayList<Evaluacion> getEvaluaciones(){
+		return listadoEvaluaciones;
+	}
+	
+	public Alumno getAlumno() {
+		return alumnoCursando;
+	}
+	
 	public Materia getMateria() {
-		return materiaEnCurso;
+		return materia;
 	}
-
-	public Boolean anadirEvaluacion(Evaluacion evaluacion) {
-		return evaluacionesCursada.add(evaluacion);
+	
+	
+	public Boolean añadirEvaluacion(Evaluacion eval) {
+		Boolean resultado = true;
+		 for(Evaluacion actual: listadoEvaluaciones) {
+			if(actual.equals(eval)){
+				resultado = false;
+			} else if(resultado == true) {
+				listadoEvaluaciones.add(eval);
+			}
+		}
+		return resultado;
 	}
-
-	public HashSet<Evaluacion> getEvaluaciones() {
-		return evaluacionesCursada;
-	}
-
+	
 	public Alumno getAlumnoEnCursada() {
 		return alumnoEnCursada;
 	}
+
 }

@@ -13,7 +13,7 @@ public class Tecnico extends Usuario {
 	}
 	
 	
-	public Boolean añadirUsuario(Sistema sistemaObj, Usuario nuevoUsuario) {
+	public Boolean aÃ±adirUsuario(Sistema sistemaObj, Usuario nuevoUsuario) {
 		if(sistemaObj.ingresarUsuario(nuevoUsuario).equals(true)) {
 			return true; 
 		}else {
@@ -32,7 +32,7 @@ public class Tecnico extends Usuario {
 	}
 	
 	
-	public Boolean añadirAlumno (Materia materia, Alumno nuevoAlumno) {
+	public Boolean aÃ±adirAlumno(Materia materia, Alumno nuevoAlumno) {
 		if(materia.anotarAlumno(nuevoAlumno).equals(true)) {
 			return true;
 		}else {

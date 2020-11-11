@@ -33,7 +33,7 @@ public class TestSistema {
 	}
 
 	@Test
-	public void testQueSePuedaAñadirEvaluacion() {
+	public void testQueSePuedaAÃ±adirEvaluacion() {
 		Docente alejandro = new Docente("Alejandro", "Goitea", 3520156);
 		Alumno jorge = new Alumno("Jorge", "Pereyra", 3520100, "Desarrollo Web");
 		Alumno pedro = new Alumno("Pedro", "Pereyra", 3520101, "Desarrollo Web");
@@ -70,7 +70,7 @@ public class TestSistema {
 
 		alejandro.subirEvaluacion("Examen 1 de herencia", pb1, false);
 
-		assertTrue(jorge.realizarEvaluación("Examen 1 de herencia", pb1));
+		assertTrue(jorge.realizarEvaluacion("Examen 1 de herencia", pb1));
 		assertFalse(jorge.obtenerEvaluacionPorTitulo("Examen 1 de herencia", jorge.getCurso(pb1)).isPendiente());
 	}
 	
@@ -90,7 +90,7 @@ public class TestSistema {
 		pb1.anotarAlumno(jorge);
 
 		alejandro.subirEvaluacion("Examen 1 de herencia", pb1, false);
-		jorge.realizarEvaluación("Examen 1 de herencia", pb1);
+		jorge.realizarEvaluacion("Examen 1 de herencia", pb1);
 		
 		assertTrue(alejandro.corregirEvaluacion(pb1, jorge, "Examen 1 de herencia", 7));
 		assertTrue(alejandro.corregirEvaluacion(pb1, pedro, "Examen 1 de herencia", 1));

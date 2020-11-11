@@ -36,7 +36,7 @@ public class Docente extends Usuario {
 			if (buscada.equals(materiaAEvaluar)) {
 				for (Alumno alumno : buscada.getListadoAlumnos()) {
 					if(alumno.getCurso(buscada) != null)
-						alumno.getCurso(buscada).anadirEvaluacion(new Evaluacion(tituloEvaluacion, esRecuperatorio));
+						alumno.getCurso(buscada).añadirEvaluacion(new Evaluacion(tituloEvaluacion, esRecuperatorio));
 				}
 				return true;
 			}

@@ -33,7 +33,7 @@ public class Alumno extends Usuario {
 		return materiasEnCurso.remove(curso);
 	}
 	
-	public Boolean realizarEvaluación(String titulo, Materia materiaEvaluada) {
+	public Boolean realizarEvaluacion(String titulo, Materia materiaEvaluada) {
 		for(Cursada curso : materiasEnCurso) {
 			if(curso.getMateria().equals(materiaEvaluada) && obtenerEvaluacionPorTitulo(titulo, curso) != null){
 				Evaluacion realizada = obtenerEvaluacionPorTitulo(titulo, curso);
