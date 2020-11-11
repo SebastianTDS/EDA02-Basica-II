@@ -2,7 +2,7 @@ package unlam.pb2.eda02;
 
 public class Tecnico extends Usuario {
 
-	public Tecnico(String nombre, String apellido, String dni) {
+	public Tecnico(String nombre, String apellido, Integer dni) {
 		super(nombre, apellido, dni);
 	}
 

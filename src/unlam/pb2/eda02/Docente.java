@@ -6,7 +6,7 @@ public class Docente extends Usuario {
 
 	private HashSet<Materia> materiasACargo;
 
-	public Docente(String nombre, String apellido, String dni) {
+	public Docente(String nombre, String apellido, Integer dni) {
 		super(nombre, apellido, dni);
 		materiasACargo = new HashSet<Materia>();
 	}

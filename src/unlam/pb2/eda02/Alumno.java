@@ -6,7 +6,7 @@ public class Alumno extends Usuario {
 	private String carrera;
 	private HashSet<Cursada> materiasEnCurso;
 
-	public Alumno(String nombre, String apellido, String dni, String carrera) {
+	public Alumno(String nombre, String apellido, Integer dni, String carrera) {
 		super(nombre, apellido, dni);
 		this.carrera = carrera;
 		this.materiasEnCurso = new HashSet<Cursada>();
