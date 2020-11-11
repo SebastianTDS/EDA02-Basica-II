@@ -53,11 +53,11 @@ public abstract class Usuario {
 	}
 
 	public Boolean isLogueado() {
-		return this.isLogueado();
+		return this.estaLogueado;
 	}
 
 	public Boolean isBloqueado() {
-		return this.isBloqueado();
+		return this.estaBloqueado;
 	}
 
 	public Boolean cambiarContrasena(String nuevaContra) {
