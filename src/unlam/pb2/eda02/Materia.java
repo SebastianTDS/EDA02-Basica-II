@@ -4,30 +4,35 @@ import java.util.HashSet;
 
 public class Materia {
 	
-	private HashSet<Alumno> listadoAlumnos;
-	private Docente docenteDeCatedra;
+	String nombreMateria;
+	HashSet<Alumno> listadoAlumnos;
+	Docente docenteDeCatedra;
 	
 	public Materia(String nombreMateria, Docente docenteDeCatedra) {
-		this.listadoAlumnos = new HashSet<Alumno>();
+		this.nombreMateria = nombreMateria;
 		this.docenteDeCatedra = docenteDeCatedra;
+		this.listadoAlumnos = new HashSet<Alumno>();
+	}
+	
+	public String getNombreMateria() {
+		return nombreMateria;
+	}
+	
+	public HashSet<Alumno> getListadoAlumnos(){
+		return listadoAlumnos;
 	}
 	
 	public Docente getDocente() {
 		return docenteDeCatedra;
 	}
-
-	public HashSet<Alumno> getListadoAlumnos() {
-		return listadoAlumnos;
+	
+	public Boolean anotarAlumno(Alumno nuevoAlumno) {
+		nuevoAlumno.anotarseEnCursada(new Cursada(this, nuevoAlumno));
+		return listadoAlumnos.add(nuevoAlumno);
 	}
 	
-	public Boolean anotarAlumno(Alumno alumnoNuevo) {
-		alumnoNuevo.anotarseEnCursada(new Cursada(this, alumnoNuevo));
-		return listadoAlumnos.add(alumnoNuevo);
-	}
-	
-	public Boolean removerAlumno(Alumno alumnoRemovido) {
-		alumnoRemovido.abandonarCursada(alumnoRemovido.getCurso(this));
-		return listadoAlumnos.remove(alumnoRemovido);
-	}
+	public void setDocente(Docente nuevoDocente) {
+		this.docenteDeCatedra = nuevoDocente;
+	}	
 
 }
