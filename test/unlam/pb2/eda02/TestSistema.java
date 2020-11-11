@@ -8,7 +8,7 @@ public class TestSistema {
 
 	@Test
 	public void testQueSePuedaAnadirMateriaADocente() {
-		Docente alejandro = new Docente("Alejandro", "Goitea", "3520156");
+		Docente alejandro = new Docente("Alejandro", "Goitea", 3520156);
 		Materia pb1 = new Materia("Basica 1", alejandro);
 		Materia pb2 = new Materia("Basica 2", alejandro);
 
@@ -21,7 +21,7 @@ public class TestSistema {
 
 	@Test
 	public void testQueSePuedaRemoverMateriaADocente() {
-		Docente alejandro = new Docente("Alejandro", "Goitea", "3520156");
+		Docente alejandro = new Docente("Alejandro", "Goitea", 3520156);
 		Materia pb1 = new Materia("Basica 1", alejandro);
 		Materia ingles = new Materia("Ingles", alejandro);
 
@@ -34,9 +34,9 @@ public class TestSistema {
 
 	@Test
 	public void testQueSePuedaAñadirEvaluacion() {
-		Docente alejandro = new Docente("Alejandro", "Goitea", "3520156");
-		Alumno jorge = new Alumno("Jorge", "Pereyra", "3520100", "Desarrollo Web");
-		Alumno pedro = new Alumno("Pedro", "Pereyra", "3520101", "Desarrollo Web");
+		Docente alejandro = new Docente("Alejandro", "Goitea", 3520156);
+		Alumno jorge = new Alumno("Jorge", "Pereyra", 3520100, "Desarrollo Web");
+		Alumno pedro = new Alumno("Pedro", "Pereyra", 3520101, "Desarrollo Web");
 
 		Materia pb1 = new Materia("Basica 1", alejandro);
 		Materia pb2 = new Materia("Basica 2", alejandro);
@@ -55,9 +55,9 @@ public class TestSistema {
 
 	@Test
 	public void testQueSePuedaResolverEvaluacion() {
-		Docente alejandro = new Docente("Alejandro", "Goitea", "3520156");
-		Alumno jorge = new Alumno("Jorge", "Pereyra", "3520100", "Desarrollo Web");
-		Alumno pedro = new Alumno("Pedro", "Pereyra", "3520101", "Desarrollo Web");
+		Docente alejandro = new Docente("Alejandro", "Goitea", 3520156);
+		Alumno jorge = new Alumno("Jorge", "Pereyra", 3520100, "Desarrollo Web");
+		Alumno pedro = new Alumno("Pedro", "Pereyra", 3520101, "Desarrollo Web");
 
 		Materia pb1 = new Materia("Basica 1", alejandro);
 		Materia pb2 = new Materia("Basica 2", alejandro);
@@ -76,9 +76,9 @@ public class TestSistema {
 	
 	@Test
 	public void testQueSePuedaCorregirEvaluacion() {
-		Docente alejandro = new Docente("Alejandro", "Goitea", "3520156");
-		Alumno jorge = new Alumno("Jorge", "Pereyra", "3520100", "Desarrollo Web");
-		Alumno pedro = new Alumno("Pedro", "Pereyra", "3520101", "Desarrollo Web");
+		Docente alejandro = new Docente("Alejandro", "Goitea", 3520156);
+		Alumno jorge = new Alumno("Jorge", "Pereyra", 3520100, "Desarrollo Web");
+		Alumno pedro = new Alumno("Pedro", "Pereyra", 3520101, "Desarrollo Web");
 
 		Materia pb1 = new Materia("Basica 1", alejandro);
 		Materia pb2 = new Materia("Basica 2", alejandro);
