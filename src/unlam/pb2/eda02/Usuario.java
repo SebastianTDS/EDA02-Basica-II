@@ -17,7 +17,7 @@ public abstract class Usuario {
 	public Usuario(String nombre, String apellido, Integer dni) {
 		this.nombre = nombre;
 		this.apellido = apellido;
-		this.contrasena = dni.toString;
+		this.contrasena = dni.toString();
 		this.dni = dni;
 		this.contadorIntentos = 0;
 		this.CANT_MAX_INTENTOS = 3;
