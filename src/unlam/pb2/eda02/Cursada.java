@@ -8,19 +8,19 @@ public class Cursada{
 	public Alumno alumnoCursando;
 	public Materia materia;
 	public enum estadoCursada{APROBADA, DESAPROBADA};
-	private Alumno alumnoEnCursada;
-	
+
 	
 	public Cursada(Materia materia, Alumno alumnoCursando) {
 		this.materia = materia;
 		this.alumnoCursando = alumnoCursando;
+		this.listadoEvaluaciones = new ArrayList<Evaluacion>();
 	}
 	
 	public ArrayList<Evaluacion> getEvaluaciones(){
 		return listadoEvaluaciones;
 	}
 	
-	public Alumno getAlumno() {
+	public Alumno getAlumnoCursando() {
 		return alumnoCursando;
 	}
 	
@@ -30,19 +30,6 @@ public class Cursada{
 	
 	
 	public Boolean añadirEvaluacion(Evaluacion eval) {
-		Boolean resultado = true;
-		 for(Evaluacion actual: listadoEvaluaciones) {
-			if(actual.equals(eval)){
-				resultado = false;
-			} else if(resultado == true) {
-				listadoEvaluaciones.add(eval);
-			}
-		}
-		return resultado;
+		return listadoEvaluaciones.add(eval);
 	}
-	
-	public Alumno getAlumnoEnCursada() {
-		return alumnoEnCursada;
-	}
-
 }

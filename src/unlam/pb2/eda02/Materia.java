@@ -27,15 +27,8 @@ public class Materia {
 	}
 	
 	public Boolean anotarAlumno(Alumno nuevoAlumno) {
-		Boolean resultado=true;
-		for(Alumno actual: listadoAlumnos) {
-			if(actual.equals(nuevoAlumno)){
-				resultado = false;
-			} else if(resultado == true) {
-				listadoAlumnos.add(nuevoAlumno);
-			}
-		}
-		return resultado;
+		nuevoAlumno.anotarseEnCursada(new Cursada(this, nuevoAlumno));
+		return listadoAlumnos.add(nuevoAlumno);
 	}
 	
 	public void setDocente(Docente nuevoDocente) {

@@ -25,7 +25,7 @@ public class Alumno extends Usuario {
 	}
 	
 	public Boolean anotarseEnCursada(Cursada curso) {
-		if(curso.getAlumnoEnCursada() != this) return false;
+		if(curso.getAlumnoCursando() != this) return false;
 		return materiasEnCurso.add(curso);
 	}
 	
