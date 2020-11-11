@@ -98,4 +98,59 @@ public class TestSistema {
 		assertEquals(jorge.obtenerEvaluacionPorTitulo("Examen 1 de herencia", jorge.getCurso(pb1)).getNota(), (Integer)7);
 		assertEquals(pedro.obtenerEvaluacionPorTitulo("Examen 1 de herencia", pedro.getCurso(pb1)).getNota(), (Integer)0);
 	}
+	
+	@Test
+	public void testQuePermitaCrearUnSistema() {
+		Sistema sistema = new Sistema ("SistemaUno");
+		assertEquals(sistema.getNombre(),"SistemaUno");
+	}
+	
+	@Test
+	public void testQuePermitaIngresarUsuariosEnElSistema() {
+		Sistema sistema = new Sistema ("SistemaUno");
+		Usuario usuarioUno = new Docente ("Jose","Gomes",30100100);
+		Usuario usuarioDos = new Alumno ("Alfonso","Davies",32200200,"Informatica");
+		Usuario usuarioTres = new Tecnico ("Alvaro","Dias",36300500);
+		
+		sistema.ingresarUsuario(usuarioUno);
+		sistema.ingresarUsuario(usuarioDos);
+		sistema.ingresarUsuario(usuarioTres);
+		
+		assertEquals(sistema.obtenerNumeroUsuarios(),(Integer)3);
+	}
+	
+	@Test
+	public void testQuePermitaRemoverUsuariosEnElSistema() {
+		Sistema sistema = new Sistema ("SistemaUno");
+		Usuario usuarioUno = new Docente ("Jose","Gomes",30100100);
+		Usuario usuarioDos = new Alumno ("Alfonso","Davies",32200200,"Informatica");
+		Usuario usuarioTres = new Tecnico ("Alvaro","Dias",36300500);
+		
+		sistema.ingresarUsuario(usuarioUno);
+		sistema.ingresarUsuario(usuarioDos);
+		sistema.ingresarUsuario(usuarioTres);
+		
+		sistema.removerUsuario(usuarioDos);
+		
+		assertEquals(sistema.obtenerNumeroUsuarios(),(Integer)2);
+	}
+	
+	@Test
+	public void testQuePermitaEncontrarUnUsuarioEspecificoEnElSistema() {
+		Sistema sistema = new Sistema ("SistemaUno");
+		Usuario usuarioUno = new Docente ("Jose","Gomes",30100100);
+		Usuario usuarioDos = new Alumno ("Alfonso","Davies",32200200,"Informatica");
+		Usuario usuarioTres = new Tecnico ("Alvaro","Dias",36300500);
+		
+		sistema.ingresarUsuario(usuarioUno);
+		sistema.ingresarUsuario(usuarioDos);
+		sistema.ingresarUsuario(usuarioTres);
+		
+		assertEquals(sistema.obtenerUsuario(usuarioDos),usuarioDos);
+	}
 }
+
+
+
+
+
