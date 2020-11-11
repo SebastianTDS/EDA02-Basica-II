@@ -33,7 +33,7 @@ public class TestSistema {
 	}
 
 	@Test
-	public void testQueSePuedaAñadirEvaluacion() {
+	public void testQueSePuedaAnadirEvaluacion() {
 		Docente alejandro = new Docente("Alejandro", "Goitea", 3520156);
 		Alumno jorge = new Alumno("Jorge", "Pereyra", 3520100, "Desarrollo Web");
 		Alumno pedro = new Alumno("Pedro", "Pereyra", 3520101, "Desarrollo Web");
