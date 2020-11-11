@@ -7,17 +7,17 @@ public abstract class Usuario {
 	private String nombre;
 	private String apellido;
 	private String contrasena;
-	private String dni;
+	private Integer dni;
 	private Integer contadorIntentos;
 	private Integer CANT_MAX_INTENTOS;
 	private Boolean estaLogueado;
 	private Boolean estaBloqueado;
 	private ArrayList<String> listadoContrasenas;
 
-	public Usuario(String nombre, String apellido, String dni) {
+	public Usuario(String nombre, String apellido, Integer dni) {
 		this.nombre = nombre;
 		this.apellido = apellido;
-		this.contrasena = dni;
+		this.contrasena = dni.toString();
 		this.dni = dni;
 		this.contadorIntentos = 0;
 		this.CANT_MAX_INTENTOS = 3;
@@ -43,7 +43,7 @@ public abstract class Usuario {
 		this.apellido = apellido;
 	}
 
-	public String getDNI() {
+	public Integer getDNI() {
 		return this.dni;
 	}
 
@@ -97,7 +97,7 @@ public abstract class Usuario {
 
 				if (!(this.listadoContrasenas.contains(contra))) {
 					if (this.listadoContrasenas.size() == 5) {
-						this.listadoContrasenas.remove(this.listadoContrasenas.get(4));
+						this.listadoContrasenas.remove(this.listadoContrasenas.get(0));
 						this.contrasena = contra;
 						this.listadoContrasenas.add(contra);
 						return true;
@@ -116,28 +116,24 @@ public abstract class Usuario {
 	}
 	
 
-	public Boolean ingresarACuenta(String dni, String contrasena) {
 
+	public Boolean ingresarACuenta(Integer dni, String contrasena) {
 		if(estaBloqueado) return this.estaLogueado;	
-
+		
 		if((this.dni.equals(dni)) && (this.contrasena.equals(contrasena)) && (this.isBloqueado().equals(false))){
 			this.estaLogueado = true;
 		}else {
 			this.estaLogueado = false;
 			this.contadorIntentos++;
-
 			if(contadorIntentos >= CANT_MAX_INTENTOS)
 				this.estaBloqueado = true;
 		}
 		return this.estaLogueado;
 	}
-
-	
 	
 	public void desbloquear() {
 		this.estaBloqueado = false;
 		this.contadorIntentos = 0;
-
 	}
 
 	@Override
