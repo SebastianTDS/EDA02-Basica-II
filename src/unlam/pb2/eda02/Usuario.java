@@ -116,6 +116,7 @@ public abstract class Usuario {
 	}
 	
 
+
 	public Boolean ingresarACuenta(Integer dni, String contrasena) {
 		if(estaBloqueado) return this.estaLogueado;	
 		
@@ -161,5 +162,3 @@ public abstract class Usuario {
 	}
 
 }
-
-
