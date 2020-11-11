@@ -18,8 +18,6 @@ public class TestCursada {
 		Evaluacion eva3 = new Evaluacion("Evaluacion 3", false);
 		Evaluacion eva4 = new Evaluacion("Evaluacion 4", false);
 		
-
-
 		curso1.añadirEvaluacion(eva1);
 		curso1.añadirEvaluacion(eva2);
 		curso1.añadirEvaluacion(eva3);
